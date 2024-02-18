@@ -1,0 +1,32 @@
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages:['wordtree']});
+      google.charts.setOnLoadCallback(drawSimpleNodeChart);
+      function drawSimpleNodeChart() {
+        var data = google.visualization.arrayToDataTable(
+          [ ['Phrases'],
+            ['Python is a versatile and powerful programming language used for a wide range of applications. Learning Python opens up numerous opportunities in software development and data science. Python is simplicity and readability make it an ideal choice for beginners and experienced programmers alike. Many successful startups rely on Python for building scalable and efficient web applications. Python is extensive library ecosystem facilitates rapid development and prototyping of projects. Experienced developers often praise Python for its elegant syntax and ease of use. Python enthusiasts regularly contribute to its vibrant community through open-source projects and forums. Mastering Python allows developers to create sophisticated machine learning models and AI algorithms. Python\'s popularity continues to soar as more companies recognize its potential for streamlining workflows and boosting productivity. From web development to scientific computing, Python remains a top choice for professionals seeking a versatile and reliable programming language.'],
+            
+          ]
+        );
+
+        var options = {
+          wordtree: {
+            format: 'implicit',
+            type: 'double',
+            word: 'Python'
+          }
+        };
+
+        var wordtree = new google.visualization.WordTree(document.getElementById('wordtree_double'));
+        wordtree.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="wordtree_double" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
