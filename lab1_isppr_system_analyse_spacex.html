@@ -1,0 +1,32 @@
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages:['wordtree']});
+      google.charts.setOnLoadCallback(drawSimpleNodeChart);
+      function drawSimpleNodeChart() {
+        var data = google.visualization.arrayToDataTable(
+          [ ['Phrases'],
+            ['SpaceX, founded by Elon Musk, is revolutionizing space exploration with its innovative rocket technology. The recent SpaceX launch successfully deployed a constellation of satellites into orbit. Investors are closely monitoring SpaceX   progress as it prepares for its next manned mission to the International Space Station. SpaceX ambitious goal of colonizing Mars has captured the imagination of people worldwide. The Falcon 9, SpaceX flagship rocket, has become synonymous with reliable and cost-effective space transportation. SpaceX Starship project aims to create a fully reusable spacecraft capable of traveling to Mars and beyond. NASA has partnered with SpaceX to transport astronauts to and from the ISS, reducing reliance on Russian spacecraft. SpaceX rapid cadence of launches demonstrates its commitment to advancing space technology at an unprecedented pace. The Starlink initiative, spearheaded by SpaceX, seeks to provide global internet coverage through a constellation of satellites. As SpaceX continues to push the boundaries of space exploration, its influence on the aerospace industry continues to grow.'],
+            
+          ]
+        );
+
+        var options = {
+          wordtree: {
+            format: 'implicit',
+            type: 'double',
+            word: 'SpaceX'
+          }
+        };
+
+        var wordtree = new google.visualization.WordTree(document.getElementById('wordtree_double'));
+        wordtree.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="wordtree_double" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
