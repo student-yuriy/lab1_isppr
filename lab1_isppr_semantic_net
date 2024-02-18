@@ -1,0 +1,54 @@
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages:['wordtree']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(
+          [ ['Phrases'],
+            ['Faculty of Engineering'],
+
+            ['Faculty of Engineering are Computer Science'],
+            ['Faculty of Engineering are Computer Science is Python programming'],
+            ['Faculty of Engineering are Computer Science is Algorithms and Data Structures'],
+
+            ['Faculty of Engineering are Electrical Engineering'],
+            ['Faculty of Engineering are Electrical Engineering is Circuit Design'],
+            ['Faculty of Engineering are Electrical Engineering is Power Systems'],
+            
+            ['Faculty of Mathematics'],
+            ['Faculty of Mathematics are Calculus'],
+            ['Faculty of Mathematics are Statistics'],
+            ['Faculty of Mathematics are Discrete Mathematics'],
+            
+            ['Faculty of Natural Sciences'],
+            ['Faculty of Natural Sciences is Biology'],
+            ['Faculty of Natural Sciences is Biology are Genetics'],
+            ['Faculty of Natural Sciences is Biology are Ecology'],
+            
+            ['Faculty of Chemistry'],
+            ['Faculty of Chemistry are Organic Chemistry'],
+            ['Faculty of Chemistry are Inorganic Chemistry'],
+            
+          ]
+        );
+
+        var options = {
+          wordtree: {
+            format: 'implicit',
+            word: 'Faculty'
+          }
+        };
+
+        var chart = new google.visualization.WordTree(document.getElementById('wordtree_basic'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="wordtree_basic" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
